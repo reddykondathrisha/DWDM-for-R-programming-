@@ -1,0 +1,24 @@
+age <- c(13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25, 25, 30, 33, 33, 35, 35, 35, 35, 36, 40, 45, 46, 52, 70)
+mean_age <- mean(age)
+cat("Mean of the data:", mean_age, "\n")
+median_age <- median(age)
+cat("Median of the data:", median_age, "\n")
+get_mode <- function(x) {
+  uniq_vals <- unique(x)
+  uniq_vals[which.max(tabulate(match(x, uniq_vals)))]
+}
+mode_age <- get_mode(age)
+cat("Mode of the data:", mode_age, "\n")
+if(length(unique(age)) == length(age)) {
+  cat("The data is unimodal.\n")
+} else if (length(unique(age)) < length(age)) {
+  cat("The data has repeated values, suggesting it might be unimodal or bimodal depending on the frequencies.\n")
+}
+midrange_age <- (min(age) + max(age)) / 2
+cat("Midrange of the data:", midrange_age, "\n")
+Q1 <- quantile(age, 0.25)
+Q3 <- quantile(age, 0.75)
+cat("First quartile (Q1):", Q1, "\n")
+cat("Third quartile (Q3):", Q3, "\n")
+
+
