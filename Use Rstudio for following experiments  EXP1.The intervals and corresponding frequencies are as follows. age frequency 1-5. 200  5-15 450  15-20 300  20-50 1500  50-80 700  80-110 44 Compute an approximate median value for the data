@@ -1,0 +1,12 @@
+class_intervals <- list(c(1,5), c(5,15), c(15,20), c(20,50), c(50,80), c(80,110))
+frequency <- c(200, 450, 300, 1500, 700, 44)
+cumulative_frequency <- cumsum(frequency)
+N <- sum(frequency)
+N_half <- N / 2
+median_class_index <- which(cumulative_frequency >= N_half)[1]
+L <- class_intervals[[median_class_index]][1]  
+f <- frequency[median_class_index]  
+CF <- ifelse(median_class_index == 1, 0, cumulative_frequency[median_class_index - 1])  # CF before median class
+h <- class_intervals[[median_class_index]][2] - class_intervals[[median_class_index]][1]  # Class width
+median_value <- L + ((N_half - CF) / f) * h
+cat("The approximate median value is:", median_value, "\n")
