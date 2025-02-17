@@ -1,0 +1,12 @@
+age_value <- 35  
+age_min <- 18   
+age_max <- 90    
+std_dev_age <- 12.94 
+min_max_norm <- (age_value - age_min) / (age_max - age_min)
+mean_age <- (age_max + age_min) / 2 
+z_score_norm <- (age_value - mean_age) / std_dev_age
+j <- nchar(as.character(max(abs(age_value))))
+decimal_scaling_norm <- age_value / (10^j)
+cat("Min-Max Normalized Value:", round(min_max_norm, 4), "\n")
+cat("Z-Score Normalized Value:", round(z_score_norm, 4), "\n")
+cat("Decimal Scaling Normalized Value:", round(decimal_scaling_norm, 4), "\n")
