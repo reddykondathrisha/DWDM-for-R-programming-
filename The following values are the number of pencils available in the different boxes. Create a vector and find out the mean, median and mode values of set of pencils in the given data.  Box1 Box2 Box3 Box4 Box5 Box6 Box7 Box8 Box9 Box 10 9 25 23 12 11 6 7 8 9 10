@@ -1,0 +1,13 @@
+pencils <- c(9, 25, 23, 12, 11, 6, 7, 8, 9, 10)
+mean_value <- mean(pencils)
+median_value <- median(pencils)
+get_mode <- function(x) {
+  unique_x <- unique(x)
+  counts <- tabulate(match(x, unique_x))
+  mode_values <- unique_x[counts == max(counts)]
+  return(mode_values)
+}
+mode_value <- get_mode(pencils)
+cat("Mean of pencils:", mean_value, "\n")
+cat("Median of pencils:", median_value, "\n")
+cat("Mode of pencils:", mode_value, "\n")
