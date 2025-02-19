@@ -1,0 +1,25 @@
+Age <- c(22, 25, 28, 31, 34, 37, 40, 45, 50, 53, 58, 60, 62, 65, 68, 70, 75, 78)
+BloodPressure <- c(120, 122, 125, 130, 128, 132, 135, 138, 140, 145, 150, 148, 155, 158, 160, 162, 165, 168)
+plot(Age, BloodPressure,
+     main = "Scatterplot: Blood Pressure vs Age",
+     xlab = "Age",
+     ylab = "Blood Pressure",
+     col = "blue",
+     pch = 19)
+age_intervals <- c(20, 30, 40, 50, 60, 70, 80)
+age_labels <- c("20-30", "30-40", "40-50", "50-60", "60-70", "70-80")
+Age_Group <- rep(NA, length(Age))
+for (i in 1:(length(age_intervals) - 1)) {
+  Age_Group[Age >= age_intervals[i] & Age < age_intervals[i+1]] <- age_labels[i]
+}
+unique_groups <- unique(na.omit(Age_Group))  
+mean_bp <- sapply(unique_groups, function(group) {
+  mean(BloodPressure[Age_Group == group], na.rm = TRUE)
+})
+barplot(mean_bp, 
+        main = "Average Blood Pressure by Age Group",
+        xlab = "Age Group",
+        ylab = "Average Blood Pressure",
+        col = c("red", "blue", "green", "purple", "orange", "brown"),
+        names.arg = unique_groups,
+        border = "black")
