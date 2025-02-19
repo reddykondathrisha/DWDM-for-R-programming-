@@ -1,0 +1,13 @@
+# Load the dataset
+data("AirPassengers")
+
+# Convert the dataset to a numeric vector
+passenger_counts <- as.numeric(AirPassengers)
+
+# Define breakpoints (bins)
+bins <- seq(100, 700, by = 150)  # Bins: 100, 250, 400, 550, 700
+
+# Create the histogram
+hist(passenger_counts, breaks = bins, col = "lightblue", border = "black",
+     main = "Histogram of AirPassengers Dataset",
+     xlab = "Number of Passengers", ylab = "Frequency")
