@@ -1,0 +1,10 @@
+# Sample data: Points scored by 10 players
+scores <- c(12, 15, 14, 18, 30, 17, 16, 22, 45, 14)
+
+# Create a Boxplot
+boxplot(scores, col = "lightblue", main = "Boxplot of Tennis Players' Scores",
+        ylab = "Points Scored", xlab = "Tennis Players",
+        horizontal = FALSE, notch = TRUE)
+
+# Add a grid for better readability
+grid()
